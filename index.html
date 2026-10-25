@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>200 MCQ Grand Practice Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f0f4f8; color: #2c3e50; padding: 20px 10px; }
+    .container { max-width: 950px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); }
+    h1 { text-align: center; color: #1a365d; margin-bottom: 8px; font-size: 28px; }
+    p.subtitle { text-align: center; color: #4a5568; font-size: 14px; margin-bottom: 20px; }
+    .instructions { background-color: #ebf8ff; border-left: 5px solid #3182ce; padding: 15px 20px; border-radius: 6px; margin-bottom: 25px; font-size: 14px; line-height: 1.6; }
+    .instructions strong { color: #2b6cb0; }
+    
+    /* Reading Passage Box */
+    .passage-box { background: #fffaf0; border: 1px solid #feebc8; border-left: 5px solid #dd6b20; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-size: 14.5px; line-height: 1.7; color: #2d3748; }
+    .passage-box h3 { color: #c05621; margin-bottom: 10px; font-size: 16px; }
+    .passage-box p { margin-bottom: 10px; }
+    
+    .question-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 20px; transition: all 0.2s ease; }
+    .question-title { font-size: 16px; font-weight: 600; line-height: 1.5; margin-bottom: 15px; color: #1a202c; white-space: pre-line; }
+    
+    /* Match the Following Tables */
+    .match-table { width: 100%; border-collapse: collapse; margin: 12px 0 18px 0; background: #ffffff; font-size: 14px; }
+    .match-table th, .match-table td { border: 1px solid #cbd5e0; padding: 10px 14px; text-align: left; }
+    .match-table th { background-color: #edf2f7; color: #2d3748; }
+    
+    .options-list { list-style: none; }
+    .option-item { background: #ffffff; border: 2px solid #cbd5e0; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; cursor: pointer; font-size: 14.5px; line-height: 1.4; transition: all 0.2s ease; display: flex; align-items: center; }
+    .option-item:hover { background-color: #edf2f7; border-color: #a0aec0; }
+    
+    .option-item.correct { background-color: #c6f6d5 !important; border-color: #38a169 !important; color: #22543d !important; font-weight: 600; }
+    .option-item.wrong { background-color: #fed7d7 !important; border-color: #e53e3e !important; color: #742a2a !important; font-weight: 600; }
+    .option-item.disabled { pointer-events: none; opacity: 0.9; }
+    
+    .submit-btn-container { text-align: center; margin-top: 35px; position: sticky; bottom: 20px; }
+    .submit-btn { background-color: #2b6cb0; color: white; border: none; padding: 16px 45px; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(43, 108, 176, 0.4); transition: all 0.2s ease; }
+    .submit-btn:hover { background-color: #2c5282; transform: translateY(-2px); }
+    
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.65); justify-content: center; align-items: center; z-index: 2000; }
+    .modal-content { background: #ffffff; padding: 35px; border-radius: 12px; width: 90%; max-width: 450px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .modal-content h2 { margin-bottom: 20px; color: #2d3748; font-size: 24px; }
+    .result-stat { font-size: 16px; margin: 12px 0; text-align: left; display: flex; justify-content: space-between; padding: 8px 12px; background: #f7fafc; border-radius: 6px; }
+    .total-score { font-size: 22px; font-weight: bold; color: #2b6cb0; margin: 25px 0 20px 0; padding: 12px; background: #ebf8ff; border: 1px solid #bee3f8; border-radius: 8px; }
+    .close-btn { background-color: #4a5568; color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: 600; }
+    .close-btn:hover { background-color: #2d3748; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>200 MCQ Grand Practice Test</h1>
+    <p class="subtitle">Full Paper with Answer Key & Negative Marking (-0.20 Marks)</p>
+
+    <div class="instructions">
+      <p><strong>Marking Scheme:</strong></p>
+      <ul>
+        <li>Correct Answer: <strong>+1.00 Mark</strong></li>
+        <li>Incorrect Answer: <strong>-0.20 Negative Marking</strong></li>
+        <li>Unattempted: <strong>0.00 Marks</strong></li>
+      </ul>
+      <p style="margin-top: 8px;"><em>Note: Clicking an option immediately shows Green for Correct and Red for Wrong.</em></p>
+    </div>
+
+    <!-- Reading Passage -->
+    <div class="passage-box">
+      <h3>Reading Passage (For Questions 1 to 5)</h3>
+      <p>It is generally acknowledged that children learn a lot from their parents. It is not so commonly admitted that parents learn a great deal from their children. As adults, it is easy to assume that we are always right, but the laugh was on me one beautiful day...</p>
+      <p>My daughter Kashmira knew how much I loved flowers. One day when she was nine years old, she picked some branches from our neighbour's blossoming fruit tree, but chose a different approach.</p>
+      <p>"These are lovely, dear, but do you realise that if you hadn't picked them, they would have grown into cherries?"</p>
+      <p>"No, they wouldn't have", she said firmly.</p>
+      <p>"Oh, yes, they would have. Each of these blossoms would have grown into a cherry."</p>
+      <p>"Well okay, mother, if you insist", she finally conceded, "but they were plums last year".</p>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <div class="submit-btn-container">
+      <button class="submit-btn" onclick="calculateScore()">Submit Test & View Score</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="resultModal">
+    <div class="modal-content">
+      <h2>Score Summary</h2>
+      <div class="result-stat"><span>Total Questions:</span> <strong>200</strong></div>
+      <div class="result-stat" style="color: #276749;"><span>Correct Answers:</span> <strong id="correct-count">0</strong></div>
+      <div class="result-stat" style="color: #9b2c2c;"><span>Wrong Answers (-0.20):</span> <strong id="wrong-count">0</strong></div>
+      <div class="result-stat" style="color: #4a5568;"><span>Unattempted:</span> <strong id="unattempted-count">0</strong></div>
+      
+      <div class="total-score" id="final-score">Final Score: 0.00 / 200</div>
+      
+      <button class="close-btn" onclick="closeModal()">Review Answers</button>
+    </div>
+  </div>
+
+  <script>
+    const questionsData = [
+      { q: "1. What is not commonly acknowledged is that", options: ["children learn a lot from their parents.", "parents teach their children a great deal.", "parents learn a great deal from their children.", "children learn a great deal inspite of their parents."], a: 2 },
+      { q: "2. 'The laugh was on me' means that", options: ["the mother was caught in the wrong.", "the daughter was wrong.", "people laughed at the mother.", "the mother laughed at herself."], a: 0 },
+      { q: "3. What the daughter picked from the neighbour's garden were", options: ["some branches", "some flowers", "some branches with blossoms", "some branches with fruit"], a: 2 },
+      { q: "4. The mother did not scold the daughter because", options: ["she loved flowers", "she liked cherry blossoms", "she did not understand why her daughter had done so", "she decided to indirectly make her daughter realise her mistake."], a: 3 },
+      { q: "5. The mother was caught in the wrong because the daughter", options: ["proved that she had not picked the branch with the blossom", "reminded her that she loved flowers.", "reminded her that the branch with blossoms was from a plum tree.", "proved that those blossoms would not yield any fruit."], a: 2 },
+      { q: "6. Choosing the correct connector: He could not get the prize, _____ she tried hard for it.", options: ["yet", "though", "but", "when"], a: 1 },
+      { q: "7. Jahangir was a great judge, _____", options: ["doesn't he?", "didn't he?", "wasn't he?", "weren't he?"], a: 2 },
+      { q: "8. He _____ in the middle of his speech.", options: ["broke down", "broke out", "broke up", "broke into"], a: 0 },
+      { q: "9. Synonym of EXPLICIT:", options: ["Clear", "Exciting", "Precise", "Refined"], a: 0 },
+      { q: "10. Antonym of ARROGANT:", options: ["Favourable", "Illiterate", "Kind", "Humble"], a: 3 },
+      { q: "11. Find out the word with correct spelling:", options: ["Repantance", "Repantence", "Repentence", "Repentance"], a: 3 },
+      { q: "12. Meaning of idiom: Will-o-the-wisp", options: ["To cut in a childish way", "Acting in a foolish way", "To have desires unbacked by effort", "Anything which eludes or deceives"], a: 3 },
+      { q: "13. One word substitution: A bunch of flowers", options: ["bouquet", "flock", "garland", "wreath"], a: 0 },
+      { q: "14. Indirect narration: My friend said to me, 'Where do you go daily?'", options: ["asked me where I went daily.", "said to me that where I went daily.", "told me that where I went daily.", "asked me that where I go daily."], a: 0 },
+      { q: "15. Preposition: She is different _____ her brother but resembles her mother.", options: ["with", "in", "to", "from"], a: 3 },
+      { q: "16. Passive voice: Someone gave her a bull dog.", options: ["She was given a bull dog.", "A bull dog was given to her.", "She has been given a bull dog.", "She is being given a bull dog by someone."], a: 1 },
+      { q: "17. Combine into condition: He was insincere. He was dismissed.", options: ["If he was insincere, he was dismissed.", "If he was insincere, he would have been dismissed.", "If he had not insincere, he would have been dismissed.", "If he had not been insincere, he would not have been dismissed."], a: 3 },
+      { q: "18. 'Some boys are at least as strong as Nani.' (Superlative Degree)", options: ["Nani is not stronger than some other boys.", "Nani is not the strongest of all boys.", "Nani is the strongest of all boys.", "Nani is one of the strongest boys."], a: 1 },
+      { q: "19. 'They donated a lot of money.' Identify the underlined part of speech (donated).", options: ["a lot", "donated", "money", "they"], a: 1 },
+      { q: "20. 'He never tried to know about it.' Find the adverb.", options: ["never", "to", "tried", "know"], a: 0 },
+      { q: "21. 'He sent me many letters.' This sentence belongs to which type?", options: ["Assertive", "Imperative", "Interrogative", "Exclamatory"], a: 0 },
+      { q: "22. 'He knows English besides French.' Parts of speech of 'besides':", options: ["Verb", "Noun", "Preposition", "Adverb"], a: 2 },
+      { q: "23. 'I had no money. So, I could not buy a ticket.' (Complex sentence)", options: ["Since I had no money, I could not buy a ticket.", "Though I had no money, I could not buy a ticket.", "Having no money I could not buy a ticket.", "None of the above"], a: 0 },
+      { q: "24. 'If I _____ him, I would dismiss you.'", options: ["were", "will", "was", "are"], a: 0 },
+      { q: "25. Find out silent letter in: MIRTH", options: ["m", "r", "t", "h"], a: 1 },
+      { q: "26. In which region of Telangana was a Vedic school recently established?", options: ["Yadagirigutta", "Hyderabad", "Warangal", "Mulugu"], a: 0 },
+      { q: "27. Parliament approved Amendment Bill-2026 to increase Supreme Court judges to:", options: ["35", "36", "38", "37"], a: 3 },
+      
+      { q: "28. Arrange the following waterfalls in the correct order according to their respective districts:", 
+        table: { headers: ["Waterfall", "Districts"], rows: [["1. Gaurigundala Waterfall", "A. Sangareddy"], ["2. Malkapuram Waterfall", "B. Adilabad"], ["3. Gundala Waterfall", "C. Mancherial"], ["4. Pochera Waterfall", "D. Peddapalli"]] },
+        options: ["1A, 2B, 3C, 4D", "1A, 2C, 3D, 4B", "1B, 2C, 3D, 4A", "1D, 2A, 3C, 4B"], a: 3 },
+      
+      { q: "29. Where did Shankar, the 17-year-old first martyr of 1969 Telangana Movement pass away?", options: ["Khammam police firing", "Hyderabad police firing", "Police firing at Sadashivapet", "Hunger strike in Khammam"], a: 2 },
+      { q: "30. Chronologically arrange the following events related to the Telangana Movement:\nA. Hunger strike by Ravindranath\nB. Announcement of 8-Point Formula by Indira Gandhi\nC. Postponement of Telangana Movement by Chenna Reddy\nD. Announcement of 6-Point Formula in Sept 1973", options: ["B, D, A, C", "D, A, B, C", "A, B, C, D", "B, C, A, D"], a: 1 },
+      { q: "31. Chronological order:\nA. 1997 Suryapet Declaration\nB. Telangana Janasabha Meeting in Hyderabad\nC. Formation of Telangana Aikya Vedika in 1997\nD. 1997 Warangal Meeting", options: ["A, D, C, B", "D, C, A, B", "A, C, B, D", "A, C, D, B"], a: 3 },
+      { q: "32. In which region of India did Persians launch invasion during 6th century BCE?", options: ["Southeast", "Northwest", "Northeast", "Southwest"], a: 1 },
+      { q: "33. Who attacked Mauryan Empire, suffered defeat, and concluded a treaty with Chandragupta Maurya?", options: ["Chanakya", "Seleucus Nicator", "Megasthenes", "Alexander"], a: 1 },
+      { q: "34. Which of the following options represents correct historical chronological order of Yugas?", options: ["Treta, Krita, Dvapara, Kali", "Dvapara, Kali, Krita, Treta", "Krita, Treta, Dvapara, Kali", "Krita, Treta, Kali, Dvapara"], a: 2 },
+      { q: "35. Identify literary works authored by Banabhatta:\n1. Harshacharita\n2. Kadambari\n3. Parvati Parinayam\n4. Nagananda", options: ["1 only", "1, 2 only", "1, 2, 3", "1, 2, 3, 4"], a: 2 },
+      
+      { q: "36. Match the various sacrifices (yagnas) of the Vedic period with their respective significance:", 
+        table: { headers: ["Yagna", "Significance / Feature"], rows: [["1. Yaga", "A) Establishment of supremacy over neighbouring rulers"], ["2. Ashvamedha Yagna", "B) Conferring absolute and supreme authority upon the king"], ["3. Rajasuya Yagna", "C) Establishing the king's hegemony over his subjects"], ["4. Vajapeya Yagna", "D) Rituals performed to propitiate and please deities"]] },
+        options: ["1A, 2C, 3D, 4B", "1D, 2A, 3B, 4C", "1B, 2D, 3A, 4C", "1C, 2A, 3D, 4B"], a: 1 },
+      
+      { q: "37. Identify places where inscriptions explicitly mentioning name of Ashoka have been discovered:\n1. Brahmagiri  2. Maski  3. Gujjara  4. Nittur  5. Udegolam", options: ["1, 2, 3, 4", "1, 2, 4, 5", "2, 3, 4, 5", "All the above"], a: 1 },
+      { q: "38. Which structure serves as a prominent example of Islamic architectural influence on Hindu monumental construction?", options: ["Lotus Mahal, Vijayanagara", "Thousand Pillared Mandapam, Madurai", "Royal Court Yard, Vijayanagara", "Pillared Corridor, Rameswaram"], a: 0 },
+      { q: "39. Which of the following statements regarding Muhammad bin Tughluq is incorrect?", options: ["He assassinated his father Ghiyasuddin Tughluq", "Original name Jauna Khan", "Ascended throne in 1300 CE", "Renamed Orugallu to Sultanpur"], a: 2 },
+      { q: "40. Arrange administrative units of Chola Empire in descending order of structural hierarchy:\n1. Mandalam  2. Nadu  3. Valanadu  4. Gramam", options: ["1, 2, 3, 4", "1, 4, 2, 3", "1, 3, 2, 4", "4, 3, 2, 1"], a: 2 },
+      { q: "41. During reign of which Delhi Sultan did Timur invade India in 1398 CE?", options: ["Muhd Toghluq", "Alauddin Khilji", "Nasiruddin Mahmud Shah", "Iltutmish"], a: 2 },
+      { q: "42. Identify monuments constructed under reign of Aurangzeb:\n1. Moti Masjid within Red Fort\n2. Shah Jahan's Tomb at Agra\n3. Badshahi Masjid at Lahore\n4. Jama Masjid at Fatehpur Sikri", options: ["1 and 2", "1 and 3", "2 and 4", "1, 2, 3, and 4"], a: 1 },
+      { q: "43. In which Anglo-Mysore War did Tipu Sultan suffer defeat and meet his demise?", options: ["First Mysore War", "Second Mysore War", "Third Mysore War", "Fourth Mysore War"], a: 3 },
+      
+      { q: "44. Match the Major Historical Events with Viceroys:", 
+        table: { headers: ["Major Historical Events", "Viceroys"], rows: [["1. First and Second Round Table Conferences", "Irwin"], ["2. Second and Third Round Table Conferences", "Willingdon"], ["3. August Offer", "Linlithgow"], ["4. Simla Conference", "Wavell"]] },
+        options: ["1, 2, 3", "2, 3, 4", "1, 3, 4", "1, 2, 3, and 4"], a: 3 },
+      
+      { q: "45. Match Governor-Generals with Key Administrative Policies:", 
+        table: { headers: ["Governor-General", "Key Administrative Policy"], rows: [["1. Cornwallis", "Abolition of Provincial Courts of Appeal & Circuit Courts"], ["2. Wellesley", "Subsidiary Alliance System"], ["3. William Bentinck", "Separation of Judicial and Revenue Administrations"], ["4. Dalhousie", "Doctrine of Lapse"]] },
+        options: ["2 and 4", "1, 2, and 4", "2, 3, and 4", "1, 2, 3, and 4"], a: 0 },
+      
+      { q: "46. Select correct statements regarding Round Table Conferences:\nA) INC boycotted 1st Round Table Conference\nB) Mahatma Gandhi attended 2nd Round Table Conference\nC) Gandhi-Irwin Pact concluded after 2nd RTC\nD) Round Table Conferences had essential connection with Communal Award", options: ["A, B, and C", "A, C, and D", "A, B, and D", "B, C, and D"], a: 2 },
+      { q: "47. Correct chronological sequence of British Indian Viceroys:\n1. Curzon  2. Chelmsford  3. Hardinge  4. Irwin", options: ["1, 2, 3, 4", "2, 4, 1, 3", "1, 4, 2, 3", "2, 3, 1, 4"], a: 0 },
+      { q: "48. Structural provisions absent in Morley-Minto Reforms of 1909:\n1. Separate electorates for Muslims\n2. Bicameral legislature at Centre\n3. Diarchy in provinces\n4. Extension of limited franchise to women", options: ["1 only", "2 and 3 only", "2, 3, and 4 only", "1, 3, and 4 only"], a: 2 },
+      { q: "49. Match mass movements led by Mahatma Gandhi with descriptions:\n1. Ahmedabad - Protest indigo farmers oppression\n2. Champaran - Demand land revenue suspension\n3. Kheda - Secure wage hike for cotton mill workers", options: ["All the above", "None of the above", "1 and 3", "1 and 2"], a: 1 },
+      { q: "50. Which revolutionary leader was sentenced to death in Kakori Conspiracy Case?", options: ["Chandrashekhar Azad", "Ram Prasad Bismil", "Bhagat Singh", "Subhas C. Bose"], a: 1 },
+      { q: "51. Identify incorrectly matched historical timeline pair:\n1) Vandemataram Movement: 1905-1908\n2) Home Rule Movement: 1916-1918\n3) Non-Cooperation Movement: 1920-1922\n4) Civil Disobedience Movement: 1930-1934\n5) Quit India Movement: 1942-1945", options: ["4 and 5", "3 and 4", "1, 2, 4, and 5", "None of the above"], a: 3 },
+      { q: "52. Which philosophical school of thought was propagated by 10th-century scholar Abhinavagupta?", options: ["Buddhism", "Jainism", "Shaivism", "Vaishnavism"], a: 2 },
+      
+      { q: "53. Match List 1 with List 2:", 
+        table: { headers: ["List 1 (Organization)", "List 2 (Year)"], rows: [["1. Telangana Praja Samithi", "A. 1985"], ["2. Telangana Janasabha", "B. 1984"], ["3. Telangana Party", "C. 1987"], ["4. Jai Telangana Party", "D. 1997"]] },
+        options: ["1A, 2B, 3C, 4D", "1C, 2A, 3D, 4B", "1A, 2C, 3B, 4D", "1C, 2A, 3B, 4D"], a: 3 },
+      
+      { q: "54. Malavikagnimitram delineates love story of prince belonging to which dynasty?", options: ["Gupta", "Shunga", "Rashtrakuta", "Maurya"], a: 1 },
+      { q: "55. Arrange events in chronological order:\nA. Banswada Public Meeting  B. Million March  C. Palle Palle Pattala Paiki  D. Sakala Janula Samme", options: ["C, A, B, D", "C, B, D, A", "A, B, C, D", "C, B, A, D"], a: 3 },
+      { q: "56. Lord Shiva as 'Dakshinamurthy' conceptualizes:", options: ["Fierce destroyer", "Supreme universal preceptor (Guru)", "Cosmic master of dance", "Protector of cattle"], a: 1 },
+      { q: "57. Who took initiative in founding Women's Indian Association (WIA) in 1917?", options: ["Sarojini Naidu", "Blavatsky", "Margaret Cousins", "Sister Nivedita"], a: 2 },
+      { q: "58. From where to where did 'Rajolibanda Padayatra' in 2003 take place?", options: ["Gadwal to Mahabubnagar", "Nagarkurnool to Wanaparthy", "Alampur to Gadwal", "Wanaparthy to Gadwal"], a: 2 },
+      { q: "59. Who composed classical Kannada epic poem Vikramarjuna Vijaya?", options: ["Ranna", "Thinna", "Pampa", "Jampana"], a: 2 },
+      { q: "60. Identify incorrect pair:", options: ["Telangana Praja Front - Gaddar", "Telangana United Front - Akula Bhoomaiah", "Nagara Bheri - Bellaiah Naik", "Tudum Debba - Narsinga Rao"], a: 2 },
+      { q: "61. When a number is divided by 345, remainder is 35. Divided by 15, remainder is:", options: ["5", "12", "11", "13"], a: 0 },
+      { q: "62. If sum of n terms of 2+4+6+8... = x and 1+3+5+7... = y, then 7+11+15+19... n terms equals:", options: ["3x - 3y", "3x - 5y", "5x - 3y", "5x - 5y"], a: 2 },
+      
+      { q: "63. Three individuals A, B, C take 30, 45, 60 seconds on circular track. Match rounds completed when they meet again:", 
+        table: { headers: ["Person (List 1)", "Rounds Completed (List 2)"], rows: [["1) A", "A) 6"], ["2) B", "B) 3"], ["3) C", "C) 4"], ["", "D) 2"]] },
+        options: ["1-A, 2-C, 3-B", "1-C, 2-B, 3-A", "1-B, 2-A, 3-C", "1-D, 2-C, 3-A"], a: 1 },
+      
+      { q: "64. Which set of fractions is arranged in ascending order?", options: ["1/5, 3/4, 2/7, 1/2", "2/7, 1/5, 1/2, 3/4", "1/5, 2/7, 1/2, 3/4", "2/7, 1/5, 3/4, 1/2"], a: 2 },
+      { q: "65. Evaluate: 3.36 (bar) - 2.05 (bar) + 1.33 (bar) = ?", options: ["2.61", "2.64", "2.61 (bar)", "2.64 (bar)"], a: 3 },
+      { q: "66. Value of (683x683x683 + 317x317x317) / (683x683 - 683x317 + 317x317):", options: ["683 x 317", "1000", "317", "683"], a: 1 },
+      { q: "67. Evaluate expression: 9 - [3/4 + {2 1/2 - (0.5 + 1/6 - 1/7)}]:", options: ["1 19/84", "2 61/84", "2 47/84", "2 61/84"], a: 2 },
+      { q: "68. Find total number of non-perfect square integers lying between 16^2 and 17^2:", options: ["32", "33", "34", "28"], a: 0 },
+      { q: "69. Two unbiased dice thrown simultaneously. Probability that sum of numbers is equal to 10:", options: ["1/18", "1/9", "3/5", "1/12"], a: 0 },
+      { q: "70. If 3 unbiased coins tossed together, probability of getting exactly one head:", options: ["3/8", "1/4", "1/8", "5/8"], a: 0 },
+      { q: "71. Man observing top of 15m pillar at angle 30°. Man height 1m. Distance to pillar:", options: ["14 sqrt(3)", "16 / sqrt(3)", "14 / sqrt(3)", "15 sqrt(3)"], a: 2 },
+      { q: "72. Rs. 1540 distributed among A, B, C with given ratios. Find share of C:", options: ["Rs. 930", "Rs. 820", "Rs. 740", "Rs. 580"], a: 0 },
+      { q: "73. Purse contains 50 coins (20p and 25p) totaling Rs. 11. Find number of 25 paise coins:", options: ["30", "15", "20", "10"], a: 2 },
+      { q: "74. Man spends 75% income. Income increases by 20%, expenditure by 8%. Savings increase %:", options: ["52", "56", "60", "64"], a: 1 },
+      { q: "75. Village pop 10,000. Male pop incr 5%, female pop incr 8%. Total pop 10,590. Initial male pop:", options: ["7000", "3000", "5900", "5500"], a: 0 },
+      { q: "76. Ramayya bought article for Rs 10,000, sold at 40% profit. Bought another, sold at 25% loss. Overall:", options: ["Rs. 500 Profit", "No Profit nor Loss", "Rs. 600 Profit", "Rs. 500 Loss"], a: 0 },
+      { q: "77. Trader allows 10% discount, earns 20% profit. % above cost price to mark:", options: ["10%", "30%", "36%", "34%"], a: 2 },
+      { q: "78. Rs. 2200 split into two parts. Simple interest 10% 4 yrs equals 8% 6 yrs. First part:", options: ["1400", "1200", "1000", "800"], a: 1 },
+      { q: "79. Difference between CI and SI on sum for 2 years at 10% is Rs. 631. Principal sum:", options: ["63,000", "63,100", "63,500", "63,600"], a: 1 },
+      { q: "80. Sum amounts to Rs 4840 in 2 yrs and Rs 5324 in 3 yrs under CI. Annual rate:", options: ["10%", "9%", "8%", "6%"], a: 0 },
+      { q: "81. Bank lent Rs 3,00,000 at 8% and Rs 2,00,000 at 10% for T yrs. Total interest Rs 1,76,000. Find T:", options: ["4", "3", "5", "2"], a: 1 },
+      { q: "82. Find sum of infinite series 2/3 + 3/3^2 + 2/5^3 + 3/5^4 + ...:", options: ["17/24", "15/24", "13/24", "11/24"], a: 2 },
+      { q: "83. A paints house in 30 days, B in 36 days. Work together 15 days, A leaves. Remaining time for B:", options: ["3 days", "4 days", "5 days", "6 days"], a: 0 },
+      { q: "84. A, B, C contract work for Rs 650. A and B complete 9/13 work. Share of C:", options: ["150", "300", "250", "200"], a: 3 },
+      { q: "85. Car traveling from P to Q at 8 AM. 3 hrs at 90 km/h, then 80 km/h. Total 510 km. Arrival time:", options: ["1:00 PM", "1:30 PM", "2:00 PM", "12:30 PM"], a: 2 },
+      { q: "86. Wax block (60x35x22 cm) converted into cylindrical candles (dia 7 cm, height 4 cm). Count:", options: ["75", "150", "300", "400"], a: 2 },
+      { q: "87. Rectangle length decr 4 cm, width incr 3 cm becomes square equal area. Perimeter of rectangle:", options: ["46", "48", "50", "52"], a: 2 },
+      { q: "88. Area of rectangle 60 sq units. Length & breadth decr 6 and 2 units becomes square. Area of square:", options: ["4", "9", "16", "36"], a: 2 },
+      { q: "89. Rs 3600 distributed (A = 1/2 B, B = 2/3 C). Share of B:", options: ["Rs. 1200", "Rs. 1800", "Rs. 2400", "Rs. 800"], a: 0 },
+      { q: "90. Missing fractions in series 1/2, 1/6, 1/12, 1/20, 1/30...:", options: ["1/40, 1/50...", "1/42, 1/56, 1/72, 1/90", "1/44...", "1/41..."], a: 1 },
+      { q: "91. Find wrong number in series: 1, 2, 8, 33, 148, 760, 4626:", options: ["2", "8", "33", "760"], a: 3 },
+      { q: "92. Find term in place of '?': 2Y23, 3V19, 5V17, 7T13, 11V11, ?:", options: ["13Y7", "13V9", "13W9", "13Z7"], a: 0 },
+      { q: "93. Letter replacing question mark in matrix grid:", options: ["D", "E", "H", "M"], a: 3 },
+      { q: "94. If water image of OXIDE is OXIDE, water image of METAL will be:", options: ["JATEM", "MATAJ", "AMETAL", "WETAL"], a: 1 },
+      { q: "95. Opposite face to three dots when folded into cube:", options: ["1", "2", "4", "6"], a: 3 },
+      { q: "96. If n is natural number, 10^n - 1 is always divisible by:", options: ["11", "5, 13", "5", "None of these"], a: 3 },
+      { q: "97. Code: SKY WAS BLUE = 123, SEA IS BLUE = 245... PEOPLE LIKE BIRDS =", options: ["809", "104", "036", "806"], a: 0 },
+      { q: "98. Total number of circles in the geometric figure:", options: ["13", "14", "15", "16"], a: 2 },
+      { q: "99. Number analogy: 0.8 : 0.512 :: 0.04 : ?", options: ["0.0064", "0.0016", "0.000064", "0.000016"], a: 2 },
+      { q: "100. Between 2:00 and 3:00, at how many minutes past 2 will clock hands coincide?", options: ["10 10/11 min", "11 10/11 min", "10 11/10 min", "11 11/10 min"], a: 0 },
+      { q: "101. Clock gains 10 mins in 24 hrs. Set right 8 AM. True time when clock shows 1 PM next day:", options: ["12 hrs 48 min", "22 hrs 48 min", "13 hrs 48 min", "11 hrs 48 min"], a: 0 },
+      { q: "102. Jan 1, 2008 was Tuesday. Day of week on Jan 1, 2009:", options: ["Monday", "Tuesday", "Wednesday", "Thursday"], a: 3 },
+      { q: "103. In month of 31 days, 16th is 3rd Thursday. Last day of month will be:", options: ["5th Friday", "4th Saturday", "5th Wednesday", "5th Thursday"], a: 0 },
+      { q: "104. Code: North-East = South-East, East = South. South-West will be:", options: ["North-West", "North", "West", "South-East"], a: 0 },
+      { q: "105. After sunrise, Rita and Kavita face to face. Kavita's shadow to right of Rita. Kavita facing:", options: ["North", "South", "East", "Cannot be determined"], a: 0 },
+      { q: "106. A is 18th from front, B is 16th from back. C midway between A and B is 25th from front. Total:", options: ["45", "46", "47", "48"], a: 2 },
+      { q: "107. Vijayawada bus every 30 mins. Clerk says bus left 10 mins ago, next at 9:35 AM. Information time:", options: ["9:10 AM", "8:55 AM", "9:15 AM", "9:05 AM"], a: 2 },
+      { q: "108. Monkey climbs 120 ft flagpole starting 8 AM. Climbs 30 ft, slips 20 ft each hour. Touch flag time:", options: ["2:00 PM", "5:00 PM", "8:00 PM", "3:00 AM next day"], a: 3 },
+      { q: "109. 50 students nursery. 10 speak Hindi & English. English total 21. Find Hindi total, only Hindi, only English:", options: ["21, 11, 29", "37, 27, 13", "39, 29, 11", "28, 18, 22"], a: 2 },
+      { q: "110. Coding analogy: KP2 : PK16 :: AG3 : FB81 :: TR5 : ?", options: ["YM625", "MY125", "MY625", "YM125"], a: 0 },
+      { q: "111. Logical order of words: 1) Exhaust  2) Night  3) Day  4) Sleep  5) Work", options: ["3, 5, 2, 1, 4", "3, 5, 1, 4, 2", "1, 3, 5, 4, 2", "3, 5, 1, 2, 4"], a: 1 },
+      { q: "112. Statement & Conclusions: F > B < E <= C = D >= A > G. Conclusions: I. G < F, II. C > G", options: ["Both true", "Only II true", "Neither true", "Only I true"], a: 1 },
+      { q: "113. Statement & Conclusions: Z = E >= R < G < Y > Q = F. Conclusions: I. R < F, II. R >= Z", options: ["Both true", "Only II true", "Only I true", "Neither true"], a: 3 },
+      { q: "114. India's position at WorldSkills Shanghai 2026 competition:", options: ["10th", "29th", "315th", "19th"], a: 0 },
+      { q: "115. From which railway station was India's first LNG-powered train flagged off?", options: ["Mahesana", "Sabarmati", "Ahmedabad", "Vadodara"], a: 1 },
+      { q: "116. In which country is KAZIND-2026 joint military exercise conducted with India?", options: ["Uzbekistan", "India", "Kazakhstan", "Kyrgyzstan"], a: 2 },
+      { q: "117. Where was India's largest solar cell manufacturing facility commissioned?", options: ["Hyderabad", "Gurugram", "Bengaluru", "Naidupeta"], a: 3 },
+      { q: "118. Who signed UN Convention against Cybercrime on behalf of India on Sept 25, 2026?", options: ["S Jaishankar", "Amit Shah", "Rajnath Singh", "Piyush Goyal"], a: 0 },
+      { q: "119. Which country won men's and women's kabaddi gold medals at Asian Games 2026?", options: ["Iran", "India", "Japan", "Nepal"], a: 1 },
+      { q: "120. Rank of Delhi in Oxford Economics Global Cities Index 2026:", options: ["311th", "330th", "368th", "402nd"], a: 2 },
+      { q: "121. India's rank in WEF Travel and Tourism Development Index 2026:", options: ["29th", "34th", "39th", "31st"], a: 3 },
+      { q: "122. Who will receive National Lata Mangeshkar Award 2026 in Indore?", options: ["Santanu Moitra", "AR Rahman", "Amit Trivedi", "Vishal Bhardwaj"], a: 0 },
+      { q: "123. First state to provide free registration for rural properties under 2026 scheme:", options: ["Rajasthan", "Madhya Pradesh", "Maharashtra", "Andhra Pradesh"], a: 1 },
+      { q: "124. Indian naval ships at Subic Bay for ADMM-Plus Joint Cooperation Activity:", options: ["INS Chennai & Kiltan", "INS Kolkata & Shivalik", "INS Sahyadri & Kulish", "INS Vikrant & Vikramaditya"], a: 2 },
+      { q: "125. State where ISRO will set up Advanced Radar Research Centre under Project NETRA:", options: ["Meghalaya", "Sikkim", "Tripura", "Assam"], a: 3 },
+      { q: "126. When will India-New Zealand Free Trade Agreement (FTA) come into effect?", options: ["October 20, 2026", "October 10, 2026", "November 1, 2026", "November 20, 2026"], a: 0 },
+      { q: "127. Country that launched No. III Space Effects Squadron for space defence:", options: ["France", "United Kingdom", "Germany", "Australia"], a: 1 },
+      { q: "128. First-ever Asian Games medal in soft tennis at Aichi-Nagoya Asian Games 2026:", options: ["Sherwin Nuguit", "Manu Bhaker", "Jay Meena", "Raiza Dhillon"], a: 2 },
+      { q: "129. Where was 2026 Chess Olympiad held?", options: ["Budapest", "Tashkent", "New Delhi", "Samarkand"], a: 3 },
+      { q: "130. Host city for India Energy Week 2027 from Jan 28 to 31:", options: ["Kolkata", "Goa", "Bengaluru", "Mumbai"], a: 1 },
+      { q: "131. Indian city selected to host 2032 UCI Road World Championships:", options: ["Mumbai", "Pune", "Bengaluru", "Hyderabad"], a: 1 },
+      { q: "132. State that developed AI-based Dengue Early Warning System (DEWS):", options: ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"], a: 2 },
+      { q: "133. Consider statements on Asian Games 2026 and select correct answer:", options: ["A and D", "B and C", "A, C and D", "All the above"], a: 3 },
+      
+      { q: "134. Match soil / environment types with botanical classification terms:", 
+        table: { headers: ["Soil / Environment Type", "Botanical Term"], rows: [["1) Acid soils", "A) Oxylophytes"], ["2) Saline soils", "B) Halophytes"], ["3) Sandy soils", "C) Psammophytes"], ["4) Ice / Snow", "D) Cryophytes"], ["5) Barren lands", "E) Chresophytes"]] },
+        options: ["1-D, 2-C, 3-B, 4-A, 5-E", "1-A, 2-B, 3-C, 4-D, 5-E", "1-C, 2-A, 3-D, 4-B, 5-E", "1-B, 2-D, 3-A, 4-C, 5-E"], a: 0 },
+      
+      { q: "135. Match newspapers and their editors:", 
+        table: { headers: ["Newspaper", "Editor"], rows: [["1) Nadustunna Telangana", "A. Narra Purushottam"], ["2) Poru Telangana", "B. Erramraju Shobharani"], ["3) Golconda Khilla", "C. Chikkudu Prabhakar"], ["4) Na Jana Telangana", "D. Kasim"]] },
+        options: ["1A, 2B, 3C, 4D", "1B, 2D, 3C, 4A", "1D, 2C, 3B, 4A", "1A, 2C, 3D, 4B"], a: 2 },
+      
+      { q: "136. Match important days with dates:", 
+        table: { headers: ["Important Day", "Date"], rows: [["A) World Heart Day", "1) September 29"], ["B) World Tourism Day", "2) September 23"], ["C) World Rivers Day", "3) September 28"], ["D) World Ozone Day", "4) September 16"], ["", "5) September 27"]] },
+        options: ["1-A, 2-B, 3-C, 4-D", "1-B, 2-D, 3-A, 4-C", "1-C, 2-A, 3-D, 4-B", "1-D, 2-B, 3-E, 4-A"], a: 1 },
+      
+      { q: "137. Match plant diseases with causal organisms:", 
+        table: { headers: ["Plant Disease", "Causal Organism"], rows: [["1) Rice blast (dry) disease", "A) Pseudomonas solanacearum"], ["2) Apple fire blight disease", "B) Erwinia amylovora"], ["3) Wilt disease", "C) Xanthomonas oryzae"], ["4) Blight of beans", "D) Xanthomonas phaseoli"]] },
+        options: ["1-A, 2-B, 3-C, 4-D", "1-C, 2-B, 3-A, 4-D", "1-D, 2-C, 3-B, 4-A", "1-B, 2-A, 3-D, 4-C"], a: 1 },
+      
+      { q: "138. Match cell types / tissues with locations in human body:", 
+        table: { headers: ["Cell / Tissue Type", "Body Location"], rows: [["1) Monocytes", "A) Synovial fluid"], ["2) Kupffer cells", "B) Bone"], ["3) Microglial cells", "C) Brain"], ["4) Osteoclasts", "D) Liver"], ["5) Synovial cells", "E) Blood"]] },
+        options: ["1-E, 2-D, 3-C, 4-B, 5-A", "1-A, 2-B, 3-C, 4-D, 5-E", "1-C, 2-A, 3-B, 4-E, 5-D", "1-D, 2-E, 3-A, 4-B, 5-C"], a: 0 },
+      
+      { q: "139. Interferon is a...", options: ["Low molecular weight protein that controls viral multiplication", "Protein that synthesizes DNA", "Protein used for oxygen release", "Protein that regulates DNA synthesis"], a: 0 },
+      { q: "140. Which hormone prepares uterus for implantation of blastocyst in uterine wall?", options: ["Prolactin", "Estrogen", "Progesterone", "Testosterone"], a: 2 },
+      
+      { q: "141. Match Telangana Bill approval key milestones:", 
+        table: { headers: ["Telangana Bill Milestone", "Date"], rows: [["1. Lok Sabha Approval", "A. 20 February, 2014"], ["2. Rajya Sabha Approval", "B. 18 February, 2014"], ["3. President's Assent", "C. 2 March, 2014"], ["4. Central Govt Gazette Release", "D. 1 March, 2014"]] },
+        options: ["1A, 2B, 3C, 4D", "1B, 2A, 3C, 4D", "1B, 2A, 3D, 4C", "1B, 2D, 3A, 4C"], a: 2 },
+      
+      { q: "142. Assertion (A): Urine is a yellow-coloured fluid.\nReason (R): Urochrome formed during breakdown of hemoglobin in blood is responsible for this color.", options: ["Both A and R correct, R is correct explanation of A", "Both A and R correct, R is not correct explanation", "Only A is correct", "Only R is correct"], a: 0 },
+      
+      { q: "143. Match alkaloids and their uses:", 
+        table: { headers: ["Alkaloid (Source)", "Use"], rows: [["1) Quinine (Bark)", "A) Protection from snakebites"], ["2) Nicotine (Leaves)", "B) Insecticide"], ["3) Morphine, Cocaine (Fruit)", "C) Prevention of Malaria"], ["4) Reserpine (Root)", "D) Narcotic, Pain relief"]] },
+        options: ["1-A, 2-B, 3-C, 4-D", "1-D, 2-C, 3-B, 4-A", "1-C, 2-B, 3-D, 4-A", "1-B, 2-A, 3-D, 4-C"], a: 2 },
+      
+      { q: "144. Symptoms of ESRD (End-Stage Renal Disease):", options: ["Failure of both kidneys to function", "Weakness and fatigue due to lack of blood purification", "Swelling of legs and hands due to water/waste accumulation", "All the above"], a: 3 },
+      { q: "145. Ramappa Temple is a historical temple located in _____ district of Telangana.", options: ["Hyderabad", "Mulugu", "Nalgonda", "Nizamabad"], a: 1 },
+      { q: "146. In Musa (Banana), stem is underground modification and fruits seedless. How does plant propagate?", options: ["Through offsets", "Through runners", "Through suckers", "Through stolons"], a: 2 },
+      { q: "147. Identify incorrect match:", options: ["Tobacco curing - Bacillus megaterium", "Tea curing - Micrococcus", "Jute retting - Clostridium butylicum", "Flax retting - Methanococcus"], a: 3 },
+      { q: "148. In which state/condition is cryopreservation of plant germplasm carried out?", options: ["In liquid nitrogen at -196°C", "In liquid sodium at -273°C", "In liquid mercury at -156°C", "In liquid bromine at -226°C"], a: 0 },
+      { q: "149. Which inscription prominently mentions administration & council of ministers of Satavahanas?", options: ["Hathigumpha Inscription", "Nanaghat Inscription", "Unnaghar Inscription", "Myakadoni Inscription"], a: 1 },
+      { q: "150. Function performed by a flashlight cell:", options: ["Converting mechanical to electrical energy", "Converting chemical to electrical energy", "Converting electrical to mechanical energy", "Converting electrical to chemical energy"], a: 1 },
+      
+      { q: "151. Match prominent Buddhist sites of Satavahana period with present-day districts:", 
+        table: { headers: ["Buddhist Site", "Present District"], rows: [["A. Dhulikatta", "1. Warangal"], ["B. Phanigiri", "2. Khammam"], ["C. Nelakondapalli", "3. Suryapet"], ["D. Jilakarragudem", "4. Peddapalli"]] },
+        options: ["A4, B3, C2, D1", "A4, B3, C1, D2", "A3, B4, C2, D1", "A4, B2, C3, D1"], a: 0 },
+      
+      { q: "152. As Earth rotates, centrifugal force acting on an object is maximum at:", options: ["Tropic of Cancer", "Tropic of Capricorn", "Equator", "Poles"], a: 2 },
+      { q: "153. From whose period did custom of mentioning specific years, dates, and days on inscriptions begin?", options: ["Satavahanas", "Ikshvakus", "Vishnukundins", "Vemulawada Chalukyas"], a: 1 },
+      
+      { q: "154. Match lakes with builders:", 
+        table: { headers: ["Lake", "Builder"], rows: [["A. Pakala Lake", "1. Mailama"], ["B. Ramappa Lake", "2. Mailamba"], ["C. Bayyaram Lake", "3. Recharla Rudra"], ["D. Katukuru Lake", "4. Jagadala Mummadi"]] },
+        options: ["A4, B3, C2, D1", "A4, B3, C1, D2", "A4, B2, C3, D1", "A1, B2, C3, D4"], a: 0 },
+      
+      { q: "155. Who built Padmakshi Temple located in Hanamkonda?", options: ["Ganapatideva", "Rudramadevi", "Prola II", "Prataparudra"], a: 2 },
+      { q: "156. Identify incorrect statement regarding constructions of Ibrahim Quli Qutb Shah:", options: ["Langar Houz", "Phool Bagh", "Dar-ul-Shifa", "Ibrahimpatnam Lake"], a: 2 },
+      { q: "157. Four quantum numbers for outermost valence electron of potassium atom:", options: ["4, 1, 0, 1/2", "4, 0, 0, 1/2", "4, 1, 1, 1/2", "4, 0, 1, 1/2"], a: 1 },
+      { q: "158. Permanent hardness of water is caused by presence of which soluble salts?", options: ["Carbonates of Ca, Mg", "Sulfates of Ca, Mg", "Hydroxides of Ca, Mg", "Hydrocarbons of Ca, Mg"], a: 1 },
+      { q: "159. Which set of elements does not belong to transition element group?", options: ["Cu, Ag, Au", "Ti, Zr, Hf", "Ga, In, Tl", "Fe, Co, Ni"], a: 2 },
+      { q: "160. Which mixture represents Nitrolim?", options: ["CaCN2 + N2", "CaC2 + N2", "CaCN2 + CaC2", "CaCN2 + C"], a: 3 },
+      { q: "161. What type of bond exists between NH3 and BF3 in NH3.BF3 adduct?", options: ["Covalent bond", "Ionic bond", "Coordinate covalent bond", "Hydrogen bond"], a: 2 },
+      { q: "162. Flying of a kite against force of gravity can be explained by:", options: ["Bernoulli's principle", "Pascal's principle", "Boyle's principle", "Archimedes principle"], a: 0 },
+      { q: "163. When ball thrown vertically upwards reaches maximum height 80 m. Initial velocity:", options: ["10 m/s", "20 m/s", "30 m/s", "40 m/s"], a: 3 },
+      
+      { q: "164. Match States with year full statehood was granted:", 
+        table: { headers: ["State", "Year Statehood Granted"], rows: [["A) Goa", "1) 1966"], ["B) Haryana", "2) 1972"], ["C) Meghalaya", "3) 1975"], ["D) Sikkim", "4) 1987"]] },
+        options: ["1, 3, 2, 4", "2, 4, 2, 1", "2, 3, 1, 4", "4, 1, 2, 3"], a: 3 },
+      
+      { q: "165. Fundamental Rights guaranteed by Constitution can be temporarily suspended/removed only by:", options: ["Proclamation of National Emergency", "Enactment of Parliamentary Act", "Amending the Constitution", "Judicial decisions of Supreme Court"], a: 0 },
+      { q: "166. Assertion (A): Constitution recognizes supremacy of judiciary.\nReason (R): Questions on limits decided by court:", options: ["Both A and R true, R is correct explanation of A", "Both true, R not explanation", "A true, R false", "A false, R true"], a: 0 },
+      { q: "167. During whose tenure was Inter-State Council established?", options: ["Congress government in 1975", "Janata government in 1978", "Janata Dal-led government in 1990", "United Front government in 1996"], a: 2 },
+      { q: "168. Which statement is NOT correct regarding Vice-President of India?", options: ["Holds office for 5 years", "Eligible for re-election", "Can act as President for max period of only nine months", "Supreme Court inquires into election disputes"], a: 2 },
+      { q: "169. President removes Governor of a State from office:", options: ["On request of Chief Minister", "On advice of Lokayukta", "On advice of Union Cabinet", "On advice of Attorney General"], a: 2 },
+      { q: "170. Which state does NOT have a Legislative Council (Vidhan Parishad)?", options: ["Bihar", "Maharashtra", "Rajasthan", "Uttar Pradesh"], a: 2 },
+      { q: "171. Comptroller and Auditor General of India submits audit reports to:", options: ["Prime Minister", "Parliament", "President", "Chief Justice of India"], a: 2 },
+      { q: "172. Article 359 of Constitution deals with:", options: ["Proclamation of Financial Emergency", "President's Rule in State", "Suspension of fundamental rights during Emergency (except a few)", "UPSC members service conditions"], a: 2 },
+      { q: "173. First Qutb Shahi Sultan to issue farmans (royal decrees) in Telugu:", options: ["Abul Hasan Tanisha", "Abdullah Qutb Shah", "Muhammad Quli Qutb Shah", "Muhammad Qutb Shah"], a: 1 },
+      { q: "174. During reign of which Nizam did Sepoy Mutiny of 1857 take place?", options: ["Nizam Ali Khan", "Sikandar Jah", "Nasir-ud-Daulah", "Afzal-ud-Daulah"], a: 3 },
+      { q: "175. Landmark judgment upholding 103rd Constitutional Amendment Act (EWS reservation):", options: ["Janhit Abhiyan v. Union of India", "Jarnail Singh v. Lachhimi Narain Gupta", "M. Nagaraj v. Union of India", "Indira Sawhney v. Union of India"], a: 0 },
+      { q: "176. Which party is NOT a member/partner of 'INDIA' alliance?", options: ["N.C.P.", "D.M.K.", "Shiv Sena (U.B.T.)", "Janasena"], a: 3 },
+      { q: "177. Which statement is FALSE regarding planet Venus?", options: ["Can be seen throughout entire night", "Appears as brightest object after Sun and Moon", "Rotation and revolution in opposite directions", "Surface temperature approx 450°C"], a: 0 },
+      { q: "178. Which statement is incorrect regarding rocks?", options: ["Igneous rocks are hard and crystalline", "Sedimentary rocks are hard and crystalline", "Sedimentary rocks are soft and do not form crystals", "Sedimentary rocks are porous, igneous are non-porous"], a: 1 },
+      { q: "179. On which date did Mir Osman Ali Khan issue farman for establishment of Osmania University?", options: ["26 April, 1917", "26 April, 1919", "11 July, 1918", "26 August, 1919"], a: 0 },
+      { q: "180. Real name of Chakali Ailamma:", options: ["Chityala Ailamma", "Sunkara Ailamma", "Arutla Ailamma", "Mallepalli Ailamma"], a: 0 },
+      { q: "181. Day Nizam Mir Osman Ali Khan announced on Deccan Radio that Hyderabad merged with India:", options: ["13 September, 1948", "16 September, 1948", "17 September, 1948", "18 September, 1948"], a: 2 },
+      { q: "182. Based on Tamil Nadu election results, identify incorrect pair:", options: ["TVK - 108 seats", "DMK - 59 seats", "ADMK - 47 seats", "INC - 19 seats"], a: 3 },
+      { q: "183. Which countries border Aral Sea? (A. Kazakhstan  B. Uzbekistan  C. Kyrgyzstan  D. Turkmenistan)", options: ["A and B", "A, B and E", "A, C and D", "A, B, C and D"], a: 0 },
+      { q: "184. Which states share border with UP? (A. HP  B. West Bengal  C. Uttarakhand  D. Punjab  E. MP)", options: ["A, B and D", "A, B and E", "A, C and E", "A, B, C, D and E"], a: 2 },
+      { q: "185. State famous for high quality haematite iron ore:", options: ["Chhattisgarh", "Karnataka", "Odisha", "Jharkhand"], a: 1 },
+      { q: "186. State where Upper Siang Project is located:", options: ["Sikkim", "Arunachal Pradesh", "Manipur", "Nagaland"], a: 1 },
+      
+      { q: "187. Match political parties with symbols:", 
+        table: { headers: ["Party Name", "Symbol"], rows: [["A. Asom Gana Parishad", "1. Elephant"], ["B. All India NR Congress", "2. Jug"], ["C. Mizo National Front", "3. Star"], ["D. Kerala Congress", "4. Auto"], ["E. Tamilaga Vettri Kazhagam", "5. Whistle"]] },
+        options: ["1 2 3 4 5", "2 4 5 3 1", "1 3 5 2 4", "2 5 1 4 3"], a: 0 },
+      
+      { q: "188. Identify incorrect pair among PIN Code Zones of India:", options: ["Delhi, Haryana, Punjab, Chandigarh, HP, J&K - First Zone", "Uttar Pradesh, Uttarakhand - Second Zone", "Maharashtra, Goa, Rajasthan, Gujarat - Fourth Zone", "Bihar, Jharkhand - Eighth Zone"], a: 2 },
+      
+      { q: "189. Match Mountain Passes with State/Union Territory:", 
+        table: { headers: ["Mountain Pass", "State / UT"], rows: [["A) Banihal", "1) Jammu & Kashmir"], ["B) Rohtang", "2) Himachal Pradesh"], ["C) Dihang", "3) Arunachal Pradesh"], ["D) Mana / Dungri", "4) Uttarakhand"]] },
+        options: ["A-4, B-3, C-2, D-1", "A-3, B-4, C-1, D-2", "A-1, B-2, C-3, D-4", "A-2, B-1, C-4, D-3"], a: 2 },
+      
+      { q: "190. According to 2011 Census, state with lowest percentage of SC population:", options: ["Goa", "Meghalaya", "Sikkim", "Mizoram"], a: 3 },
+      { q: "191. Option central government does NOT include in development expenditure:", options: ["Grants to states", "Expenditure on social and community services", "Expenditure on economic services", "Defence expenditure"], a: 0 },
+      
+      { q: "192. Match economic sectors with activities:", 
+        table: { headers: ["Sector (List 1)", "Activity (List 2)"], rows: [["A. Primary Sector (Agri)", "1. Services such as IT, banking, insurance, transport"], ["B. Secondary Sector (Ind)", "2. Trade through exports/imports earning foreign exchange"], ["C. Tertiary Sector (Service)", "3. Producing goods using natural resources"], ["D. Foreign Sector", "4. Manufacturing final goods using machinery/raw materials"]] },
+        options: ["A3, B4, C1, D2", "A2, B3, C4, D1", "A3, B1, C4, D2", "A4, B3, C2, D1"], a: 0 },
+      
+      { q: "193. Deficit financing can create inflation. Checked if:", options: ["Govt expenditure increases aggregate supply in aggregate demand ratio", "Investment indicated as payment on national debt only", "Only aggregate demand increased", "All of the above"], a: 1 },
+      { q: "194. Medaram Jatara is tribal festival honoring two goddesses, celebrated in _____ district.", options: ["Mulugu", "Warangal", "Jayashanker Bhupalpally", "Khammam"], a: 0 },
+      { q: "195. Main cause of export surplus:", options: ["Country's stringent import policy", "Developments in national/international markets", "Country's exports promotion value", "None of the above"], a: 3 },
+      { q: "196. If RBI reduces cash reserve ratio, credit creation will:", options: ["No impact", "Decrease", "Increase", "None of the above"], a: 2 },
+      { q: "197. Nagoba Jatara is tribal festival celebrated in _____ district of Telangana.", options: ["Adilabad", "Nizamabad", "Warangal", "Medak"], a: 0 },
+      { q: "198. State Financial Corporation in SBI gives special assistance to:", options: ["Medium and small-scale industries", "Large-scale industries", "Cottage industry", "Agricultural farms"], a: 2 },
+      { q: "199. Taliperu River is a tributary of which river in Telangana?", options: ["Tungabhadra", "Godavari", "Wainganga", "Krishna"], a: 1 },
+      { q: "200. First complete Indian Bank was established in which year?", options: ["1794", "1894", "1896", "1902"], a: 0 }
+    ];
+
+    const userAnswers = {};
+
+    function loadQuiz() {
+      const container = document.getElementById("quiz-container");
+      container.innerHTML = "";
+
+      questionsData.forEach((item, qIndex) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+
+        const title = document.createElement("div");
+        title.className = "question-title";
+        title.innerText = item.q;
+        card.appendChild(title);
+
+        if (item.table) {
+          const table = document.createElement("table");
+          table.className = "match-table";
+          let thead = "<thead><tr>";
+          item.table.headers.forEach(h => thead += `<th>${h}</th>`);
+          thead += "</tr></thead>";
+          let tbody = "<tbody>";
+          item.table.rows.forEach(r => {
+            tbody += "<tr>";
+            r.forEach(c => tbody += `<td>${c}</td>`);
+            tbody += "</tr>";
+          });
+          tbody += "</tbody>";
+          table.innerHTML = thead + tbody;
+          card.appendChild(table);
+        }
+
+        const optionsList = document.createElement("ul");
+        optionsList.className = "options-list";
+
+        item.options.forEach((optText, optIndex) => {
+          const li = document.createElement("li");
+          li.className = "option-item";
+          li.id = `q${qIndex}_opt${optIndex}`;
+          li.innerHTML = `<strong>${String.fromCharCode(65 + optIndex)}.&nbsp;</strong> ${optText}`;
+          li.onclick = () => selectOption(qIndex, optIndex);
+          optionsList.appendChild(li);
+        });
+
+        card.appendChild(optionsList);
+        container.appendChild(card);
+      });
+    }
+
+    function selectOption(qIndex, selectedOptIndex) {
+      if (userAnswers.hasOwnProperty(qIndex)) return;
+
+      userAnswers[qIndex] = selectedOptIndex;
+      const correctOptIndex = questionsData[qIndex].a;
+
+      questionsData[qIndex].options.forEach((_, optIndex) => {
+        const optionElement = document.getElementById(`q${qIndex}_opt${optIndex}`);
+        optionElement.classList.add("disabled");
+
+        if (optIndex === correctOptIndex) {
+          optionElement.classList.add("correct");
+        }
+        if (optIndex === selectedOptIndex && selectedOptIndex !== correctOptIndex) {
+          optionElement.classList.add("wrong");
+        }
+      });
+    }
+
+    function calculateScore() {
+      let correctCount = 0;
+      let wrongCount = 0;
+      let unattemptedCount = 0;
+
+      questionsData.forEach((item, index) => {
+        if (userAnswers.hasOwnProperty(index)) {
+          if (userAnswers[index] === item.a) {
+            correctCount++;
+          } else {
+            wrongCount++;
+          }
+        } else {
+          unattemptedCount++;
+        }
+      });
+
+      const totalMarks = (correctCount * 1) - (wrongCount * 0.20);
+
+      document.getElementById("correct-count").innerText = correctCount;
+      document.getElementById("wrong-count").innerText = wrongCount;
+      document.getElementById("unattempted-count").innerText = unattemptedCount;
+      document.getElementById("final-score").innerText = `Final Score: ${totalMarks.toFixed(2)} / 200`;
+
+      document.getElementById("resultModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("resultModal").style.display = "none";
+    }
+
+    window.onload = loadQuiz;
+  </script>
+</body>
+</html>
