@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,6 @@ body {
     font-family: Arial, sans-serif;
     background: #f0f4f8;
     margin: 0;
-    padding: 0;
     color: #222;
 }
 
@@ -57,7 +57,7 @@ header h1 {
 
 .question h3 {
     margin-top: 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .options {
@@ -75,6 +75,7 @@ header h1 {
     cursor: pointer;
     font-size: 15px;
     color: #222;
+    line-height: 1.5;
 }
 
 .option:hover:not(:disabled) {
@@ -103,7 +104,7 @@ header h1 {
     border-left: 4px solid #2457c5;
     margin-top: 12px;
     border-radius: 5px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .explanation.show {
@@ -118,6 +119,11 @@ button.action {
     padding: 12px 18px;
     cursor: pointer;
     font-size: 15px;
+    margin: 3px;
+}
+
+button.action:hover {
+    opacity: 0.9;
 }
 
 button.reset {
@@ -132,12 +138,29 @@ button.reset {
     border: 2px solid #2457c5;
     border-radius: 12px;
     margin-top: 25px;
+    line-height: 1.8;
 }
 
 #score {
     font-size: 35px;
     font-weight: bold;
     color: #2457c5;
+}
+
+.progress-container {
+    background: #dbe3ef;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #2457c5;
+    transition: width 0.3s;
 }
 
 @media(max-width:600px) {
@@ -148,6 +171,10 @@ button.reset {
     .question {
         padding: 15px;
     }
+
+    .toolbar {
+        align-items: stretch;
+    }
 }
 </style>
 </head>
@@ -156,13 +183,18 @@ button.reset {
 
 <header>
     <h1>Reasoning & Maths MCQ Practice</h1>
-    <p>Questions 152–200 | Practice Test</p>
+    <p>Questions 1–49 | Practice Test</p>
 </header>
 
 <div class="container">
 
     <div class="toolbar">
-        <strong id="progress">Answered: 0 / 49</strong>
+        <div style="flex:1; min-width:150px;">
+            <strong id="progress">Answered: 0 / 49</strong>
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+        </div>
 
         <div>
             <button class="action reset" onclick="resetTest()">
@@ -181,8 +213,13 @@ button.reset {
         <h2>Your Final Result</h2>
         <div id="score"></div>
         <p id="details"></p>
+
         <button class="action" onclick="reviewAnswers()">
             Review Answers
+        </button>
+
+        <button class="action reset" onclick="resetTest()">
+            Retake Test
         </button>
     </div>
 
@@ -192,7 +229,7 @@ button.reset {
 const questions = [
 
 {
-n:152,
+n:1,
 q:"Under the Indus Waters Treaty, India was given exclusive rights over which rivers?",
 o:["Chenab, Ravi and Sutlej","Beas, Ravi and Sutlej","Chenab, Beas and Indus","Jhelum, Chenab and Indus"],
 a:1,
@@ -200,7 +237,7 @@ e:"India was allocated the eastern rivers: Ravi, Beas and Sutlej. The western ri
 },
 
 {
-n:153,
+n:2,
 q:"The cause of the Bhopal disaster in December 1984 was:",
 o:["Earthquake","Floods","Industrial accident","Tsunami"],
 a:2,
@@ -208,31 +245,31 @@ e:"The Bhopal gas tragedy was an industrial disaster involving a leak of methyl 
 },
 
 {
-n:154,
+n:3,
 q:"According to the older question, one of India's gold mines was:",
 o:["Hirabuddini, Jharkhand","Kolar, Karnataka","Singra, West Bengal","Sangli, Maharashtra"],
 a:0,
-e:"The intended answer appears to be Hira-Buddini. Verify this older mining-status question against your exam's reference material."
+e:"The intended answer appears to be Hira-Buddini. Verify this older mining-status question against your exam reference material."
 },
 
 {
-n:155,
+n:4,
 q:"Varun says: She is my father-in-law's son's only sister's mother-in-law. How is Varun related to that lady?",
 o:["Brother","Son-in-law","Son","Husband"],
 a:1,
-e:"The relationship wording in the photograph is ambiguous. Please verify this question against the original answer key."
+e:"The relationship wording is ambiguous. Verify this question against the original answer key."
 },
 
 {
-n:156,
+n:5,
 q:"B is the son of C, but C is not B's mother. A and C are married. E is C's brother. D is A's daughter. F is B's brother. How many male members are there?",
 o:["2","3","4","1"],
 a:2,
-e:"B, C, E and F are male. Therefore, there are four male members."
+e:"According to the supplied answer key, B, C, E and F are male. Therefore, there are four male members."
 },
 
 {
-n:157,
+n:6,
 q:"A+B means A is the father of B; A-B means A is the son of B; A×B means A is the sister of B; A÷B means A is the wife of B. For H÷I-J×K×L-M+N, which statement is NOT correct?",
 o:["H is the husband of the sister of K","J is the wife of the son of M","H is the husband of the sister of L","H is the husband of the daughter of M"],
 a:3,
@@ -240,7 +277,7 @@ e:"The printed expression and options are unclear. Verify the intended answer ag
 },
 
 {
-n:158,
+n:7,
 q:"'Play in the sunshine' is coded as 'sh ko zm fq', and 'the sunshine is bright' as 'ko sh gp rs'. What is the code for 'sunshine'?",
 o:["Either gp or sh","ko","zm","Either sh or ko"],
 a:3,
@@ -248,7 +285,7 @@ e:"The common words are 'the' and 'sunshine', and their possible codes are sh an
 },
 
 {
-n:159,
+n:8,
 q:"KIRAT is coded as 50-40-85-0-95 and WASIM as 110-0-90-40-60. How is MRINAL coded?",
 o:["85-40-50-75-0-65","75-50-60-55-0-65","60-85-40-65-0-55","55-60-45-65-0-85"],
 a:2,
@@ -256,7 +293,7 @@ e:"The coding rule cannot be established reliably from the photographed examples
 },
 
 {
-n:160,
+n:9,
 q:"GROSS is written as 4 and MOIST is written as 8. How will ZEBRA be written?",
 o:["9","6","2","5"],
 a:1,
@@ -264,7 +301,7 @@ e:"The coding rule is unclear in the photograph. Verify the printed question and
 },
 
 {
-n:161,
+n:10,
 q:"OFFCUTS is written as LUUXDEF and PARADOX as KZIZUJA. How will NAILING be written?",
 o:["CSAWQMI","VTGDESF","BJMJROL","MZROPKR"],
 a:3,
@@ -272,7 +309,7 @@ e:"The examples are not clear enough to establish a reliable coding rule. Check 
 },
 
 {
-n:162,
+n:11,
 q:"Jaipur's seminar was held 2 days after Delhi's. Bhopal's seminar was 3 days before Delhi's. If Bhopal's seminar was on 8 April, when was Jaipur's?",
 o:["12 April","13 April","14 April","15 April"],
 a:1,
@@ -280,7 +317,7 @@ e:"Bhopal: 8 April. Delhi: 11 April. Jaipur: 13 April."
 },
 
 {
-n:163,
+n:12,
 q:"Nagpur's seminar was held on 7 March 2023. Which city's seminar was exactly two days later? Ahmedabad: 10 March, Lucknow: 6 March, Chandigarh: 12 March, Bhopal: 5 March, Pune: 8 March, Indore: 9 March, Surat: 11 March.",
 o:["Ahmedabad","Indore","Pune","Surat"],
 a:1,
@@ -288,7 +325,7 @@ e:"Two days after 7 March is 9 March. The seminar was held in Indore."
 },
 
 {
-n:164,
+n:13,
 q:"If February 29, 2032 falls on Sunday, what day will February 29, 2036 fall on?",
 o:["Wednesday","Friday","Saturday","Monday"],
 a:1,
@@ -296,15 +333,15 @@ e:"The weekday advances by five days from February 29, 2032, to February 29, 203
 },
 
 {
-n:165,
+n:14,
 q:"Seven people F, G, H, K, L, M and N have different ages. Only two are older than M and only two are younger than K. K's age is a multiple of 10. The youngest is 12. F is the eldest. N is older than L but younger than H. L is not the youngest. The youngest and second-oldest ages sum to 42. What could L's age be?",
 o:["21 years","10 years","15 years","12 years"],
 a:0,
-e:"The conditions and options in the photograph are difficult to reconcile. Verify the intended answer using a clearer copy of the question."
+e:"The conditions and options are difficult to reconcile. Verify the intended answer using a clearer copy of the question."
 },
 
 {
-n:166,
+n:15,
 q:"A class has 120 students. Boys are twice the number of girls. Rohan is ranked 28th from the top. If 18 girls are ahead of him, how many boys are behind him?",
 o:["50","70","53","54"],
 a:1,
@@ -312,7 +349,7 @@ e:"Boys = 80 and girls = 40. There are 27 students ahead of Rohan, including 18 
 },
 
 {
-n:167,
+n:16,
 q:"A star lamp is 12th from the left and a round lamp is 19th from the right. If both positions refer to the same lamp, how many lamps are there?",
 o:["32","30","31","28"],
 a:1,
@@ -320,7 +357,7 @@ e:"Total lamps = left position + right position - 1 = 12 + 19 - 1 = 30."
 },
 
 {
-n:168,
+n:17,
 q:"Find the missing number: 3, 16, 17, ?, 56, 142.5",
 o:["25","27","49","36"],
 a:2,
@@ -328,7 +365,7 @@ e:"The sequence is unclear in the photograph. Verify the missing number and answ
 },
 
 {
-n:169,
+n:18,
 q:"Find the missing number: 45, 90, 154, ?, 347",
 o:["248","273","239","256"],
 a:2,
@@ -336,7 +373,7 @@ e:"The photographed series does not establish a unique reliable pattern. Verify 
 },
 
 {
-n:170,
+n:19,
 q:"Find the missing number: 45, 68, 99, 7?, 187, 246, 313",
 o:["140","117","166","105"],
 a:0,
@@ -344,7 +381,7 @@ e:"The fourth term is unclear in the photograph. Verify the exact series before 
 },
 
 {
-n:171,
+n:20,
 q:"Find the next group: ZDFH, ZFJN, ZHNT, ZJRZ, ?",
 o:["ZNJH","ZGFD","ZLVF","ZFDS"],
 a:2,
@@ -352,7 +389,7 @@ e:"The first letter remains Z. The intended pattern appears to give ZLVF, but ve
 },
 
 {
-n:172,
+n:21,
 q:"Find the next group: DDKO, DGPV, DJUC, DMZJ, ?",
 o:["DPES","DPEQ","DPQE","DPEP"],
 a:0,
@@ -360,7 +397,7 @@ e:"The intended next group appears to be DPES. Check the original answer key if 
 },
 
 {
-n:173,
+n:22,
 q:"Find the next group: TBDH, THMR, TNVD, TTEP, ?",
 o:["TZMB","TZNC","TZNB","TYNB"],
 a:2,
@@ -368,7 +405,7 @@ e:"The intended answer appears to be TZNB. Verify against the official key."
 },
 
 {
-n:174,
+n:23,
 q:"Complete the analogy: 64 : 512 :: 169 : ? :: 225 : 3375",
 o:["1026","872","15 years","12 years"],
 a:1,
@@ -376,7 +413,7 @@ e:"The options appear inconsistent with the photographed analogy. Verify the exa
 },
 
 {
-n:175,
+n:24,
 q:"Consider statements about the LCM and HCF of x, y and z. Which statements are correct?",
 o:["I and II","I and III","II and III","I, II and III"],
 a:0,
@@ -384,7 +421,7 @@ e:"The statements are not fully legible in the photograph. Verify the wording an
 },
 
 {
-n:176,
+n:25,
 q:"The average of six numbers is 3.75. The average of two is 3.2, and the average of another two is 3.55. What is the average of the remaining two?",
 o:["4.6","4.5","4.0","4.4"],
 a:1,
@@ -392,7 +429,7 @@ e:"Total = 6 × 3.75 = 22.5. Known totals = 2 × 3.2 + 2 × 3.55 = 13.5. Remaini
 },
 
 {
-n:177,
+n:26,
 q:"A gets twice as many pens as B, C gets three times as many as D, D gets five times as many as E, and E gets six times as many as F. What is the minimum total number of pens so each child gets an even number?",
 o:["147","150","294","300"],
 a:2,
@@ -400,7 +437,7 @@ e:"The relationships in the photograph are not entirely clear. The proposed answ
 },
 
 {
-n:178,
+n:27,
 q:"Find the value of the nested-bracket expression shown in the photograph.",
 o:["18","13","10","12"],
 a:0,
@@ -408,15 +445,15 @@ e:"The expression is too blurred to transcribe reliably. Please check the origin
 },
 
 {
-n:179,
+n:28,
 q:"In an election, a candidate gets 60% of the valid votes and wins by 18,000 votes. Find the total valid votes.",
 o:["45,000","27,000","35,500","22,500"],
 a:0,
-e:"If the remaining candidate gets 40%, the margin is 20%. Total votes = 18,000 ÷ 0.20 = 90,000. This answer is not among the photographed options, so verify the question's wording."
+e:"If the other candidate gets 40%, the margin is 20%. Total votes = 18,000 ÷ 0.20 = 90,000. This answer is not among the options, so verify the question's wording."
 },
 
 {
-n:180,
+n:29,
 q:"Two articles have equal cost prices. One is sold at 12% profit, and the second is sold for ₹3,600 more than the first. Given the total profit percentage, find the cost price of each article.",
 o:["₹50,000","₹50,909","₹51,000","₹52,150"],
 a:1,
@@ -424,7 +461,7 @@ e:"The exact profit percentage and wording are unclear in the photograph. Verify
 },
 
 {
-n:181,
+n:30,
 q:"A shopkeeper marks a fan 20% above cost price and gives a 15% discount. If the profit is ₹190, find the marked price.",
 o:["₹50,000","₹50,909","₹51,000","₹52,150"],
 a:3,
@@ -432,7 +469,7 @@ e:"Selling price = 1.20 × 0.85 × CP = 1.02 CP. Profit is 2% of CP. Therefore C
 },
 
 {
-n:182,
+n:31,
 q:"Five years ago, the ratio of a father's and son's ages was 7:2. After five years, their ages will be in the ratio 9:4. After how many years will the father's age be double the son's age?",
 o:["0","9","8","12"],
 a:2,
@@ -440,7 +477,7 @@ e:"The conditions and options appear inconsistent in the photograph. Verify the 
 },
 
 {
-n:183,
+n:32,
 q:"At x% annual simple interest, the amount after 3 years is ₹8,140 and after 5 years is ₹9,240. If the rate becomes (x+2)%, in how many years will the sum double?",
 o:["10","9","8","12"],
 a:2,
@@ -448,7 +485,7 @@ e:"The difference in amounts gives annual interest of ₹550. The figures do not
 },
 
 {
-n:184,
+n:33,
 q:"Raina invests savings in Schemes A and B in the ratio 5:9. Scheme A pays 20% per annum compounded half-yearly, while Scheme B compounds annually at the same nominal rate. The total interest after 1.5 years is ₹13,605. Find the amount invested in A.",
 o:["₹14,000","₹20,000","₹16,000","₹15,000"],
 a:0,
@@ -456,7 +493,7 @@ e:"The compounding details and total interest are not clear enough in the photog
 },
 
 {
-n:185,
+n:34,
 q:"Prakhar and Riya jointly invested ₹10,500. The total profit was ₹9,000, and Prakhar's share was ₹1,200. What was Prakhar's investment?",
 o:["₹1,400","₹1,645","₹1,635","₹2,730"],
 a:0,
@@ -464,7 +501,7 @@ e:"Investment ratio = profit ratio = 1,200 : 7,800 = 2:13. Prakhar invested 2/15
 },
 
 {
-n:186,
+n:35,
 q:"A laptop costs ₹2,540 in cash or ₹1,340 now and ₹1,205 one month later. Find the annualised simple interest rate charged on the financed balance.",
 o:["20% per year","10% per year","5% per year","15% per year"],
 a:2,
@@ -472,7 +509,7 @@ e:"Balance financed = ₹2,540 - ₹1,340 = ₹1,200. Interest = ₹1,205 - ₹1
 },
 
 {
-n:187,
+n:36,
 q:"A completes 75% of a work in 30 days, and B completes 50% in 18 days. What fraction of the work can they complete together in one day?",
 o:["1/19","1/20","19/360","7/120"],
 a:2,
@@ -480,7 +517,7 @@ e:"A's rate = 1/40. B's rate = 1/36. Combined rate = 1/40 + 1/36 = 19/360."
 },
 
 {
-n:188,
+n:37,
 q:"A can do 1/7 of a work in 32 days. B can do 37% in 24 days, while C can do 60% in 48 days. B and C work together for x days. B leaves and A joins C to finish in (x+8) days. If the ratio of work done by B+C to A+C is 9:11, what fraction can C complete in 3.5x days?",
 o:["4/5","7/10","18/25","3/4"],
 a:2,
@@ -488,7 +525,7 @@ e:"The photographed wording is difficult to interpret reliably. Verify the compl
 },
 
 {
-n:189,
+n:38,
 q:"Two pipes fill a tank in 3 hours and 48 hours. A third pipe empties it in 48 hours. If all are opened, how long will it take to fill two-thirds of the tank?",
 o:["2 hours","8 hours","4 hours","6 hours"],
 a:0,
@@ -496,15 +533,15 @@ e:"Net rate = 1/3 + 1/48 - 1/48 = 1/3 tank per hour. Time for 2/3 tank = 2 hours
 },
 
 {
-n:190,
+n:39,
 q:"Tin A contains milk and water in the ratio 1:3. Tin B contains milk and water in the ratio m:n. The mixtures are combined in the ratio 2:3 to obtain a mixture with milk and water in the ratio 3:7. Find the ratio in tin B.",
 o:["1:2","2:3","3:4","4:5"],
 a:0,
-e:"Tin A has 1/4 milk. The final mixture has 3/10 milk. Using weighted averages, tin B must have 1/3 milk, giving a milk-to-water ratio of 1:2. The options have been normalised to show the likely intended ratio."
+e:"Tin A has 1/4 milk. The final mixture has 3/10 milk. Using weighted averages, tin B must have 1/3 milk, giving a milk-to-water ratio of 1:2."
 },
 
 {
-n:191,
+n:40,
 q:"Two rabbits run towards each other from A and B. They cross after 1 hour. The first rabbit reaches B 5/6 hour before the second reaches A. AB = 50 km. What is the speed of the slower rabbit?",
 o:["20 km/h","10 km/h","15 km/h","25 km/h"],
 a:0,
@@ -512,7 +549,7 @@ e:"The question as transcribed appears inconsistent with the options. The propos
 },
 
 {
-n:192,
+n:41,
 q:"A train travels from Amritsar to Kangra at 96 km/h and returns at 98 km/h. The total journey takes 194 hours. Find the one-way distance.",
 o:["9508 km","9308 km","9608 km","9408 km"],
 a:0,
@@ -520,7 +557,7 @@ e:"For distance d: d/96 + d/98 = 194. Solving gives approximately 9,506 km, clos
 },
 
 {
-n:193,
+n:42,
 q:"P and Q divide XY into three equal parts. The river flows parallel to XY. The ratio of the times taken by a boat to travel from X to Q and from Y to Q is 4:5. Find the ratio of the boat's downstream speed to the stream speed.",
 o:["4:3","3:10","3:4","10:3"],
 a:3,
@@ -528,7 +565,7 @@ e:"The directions and diagram are not sufficiently clear in the photograph. Veri
 },
 
 {
-n:194,
+n:43,
 q:"A and B start from two places 240 km apart, moving towards each other. Their speed ratio is 5:7, and B's speed is 84 km/h. After how many minutes will they meet?",
 o:["90 min","80 min","120 min","100 min"],
 a:3,
@@ -536,7 +573,7 @@ e:"A's speed = 84 × 5/7 = 60 km/h. Combined speed = 144 km/h. Time = 240/144 ho
 },
 
 {
-n:195,
+n:44,
 q:"Four coins are tossed simultaneously. What is the probability of getting exactly two heads?",
 o:["3/8","1/4","5/8","3/16"],
 a:0,
@@ -544,7 +581,7 @@ e:"Total outcomes = 2⁴ = 16. Ways to get exactly two heads = C(4,2) = 6. Proba
 },
 
 {
-n:196,
+n:45,
 q:"In right triangle ABC, angle B = 90°. D and E lie on BC, with BD = DE = EC. Which equation is correct?",
 o:["8AE² = 5AC² + 3AD²","8AE² = 3AC² + 5AD²","5AE² = 3AC² + 2AD²","5AE² = 2AC² + 3AD²"],
 a:1,
@@ -552,7 +589,7 @@ e:"Using coordinates B=(0,0), C=(3x,0), A=(u,v), D=(x,0) and E=(2x,0), the squar
 },
 
 {
-n:197,
+n:46,
 q:"In the Fibonacci series, Fₙ = Fₙ₋₁ + Fₙ₋₂, with F₀=0 and F₁=1. What is the 10th term?",
 o:["56","57","34","22"],
 a:2,
@@ -560,7 +597,7 @@ e:"The sequence begins 0, 1, 1, 2, 3, 5, 8, 13, 21, 34. The 10th term is 34."
 },
 
 {
-n:198,
+n:47,
 q:"A cylindrical pipe has an internal diameter of 14 cm. Water flows through it at 154 litres per minute. Find the water speed in km/h. Use π = 22/7.",
 o:["0.5","0.6","0.8","1"],
 a:1,
@@ -568,7 +605,7 @@ e:"Radius = 7 cm. Area = (22/7) × 7² = 154 cm². Flow = 154,000 cm³/min. Spee
 },
 
 {
-n:199,
+n:48,
 q:"Consider statements: I. 2sin²θ - cosθ + 4 = 0 is possible for all θ. II. tanθ + cotθ cannot be less than 2 when 0 < θ < π/2. Which statements are correct?",
 o:["Only I","Only II","Both I and II","Neither I nor II"],
 a:1,
@@ -576,7 +613,7 @@ e:"Statement I is false because the equation has no solution for cosθ in [-1,1]
 },
 
 {
-n:200,
+n:49,
 q:"Find the mean height: heights are 61, 64, 67, 70 and 73 cm; frequencies are 5, 18, 42, 27 and 8.",
 o:["67.00 cm","66.50 cm","68.00 cm","67.45 cm"],
 a:0,
@@ -587,6 +624,7 @@ e:"Weighted sum = 61×5 + 64×18 + 67×42 + 70×27 + 73×8 = 6,700. Total freque
 
 const answers = {};
 const quiz = document.getElementById("quiz");
+let submitted = false;
 
 function renderQuestions() {
     quiz.innerHTML = "";
@@ -596,23 +634,32 @@ function renderQuestions() {
         card.className = "question";
         card.id = "question-" + q.n;
 
-        let html = `<h3>Question ${q.n}: ${q.q}</h3>`;
-        html += `<div class="options">`;
+        const heading = document.createElement("h3");
+        heading.textContent = `Question ${q.n}: ${q.q}`;
+        card.appendChild(heading);
+
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "options";
 
         q.o.forEach((option, i) => {
-            html += `
-                <button class="option"
-                    data-index="${i}"
-                    onclick="selectAnswer(${q.n}, ${i})">
-                    ${String.fromCharCode(65 + i)}. ${option}
-                </button>
-            `;
+            const button = document.createElement("button");
+            button.className = "option";
+            button.textContent =
+                `${String.fromCharCode(65 + i)}. ${option}`;
+
+            button.onclick = () => selectAnswer(q.n, i);
+            button.dataset.index = i;
+
+            optionsDiv.appendChild(button);
         });
 
-        html += `</div>`;
-        html += `<div class="explanation" id="explanation-${q.n}"></div>`;
+        card.appendChild(optionsDiv);
 
-        card.innerHTML = html;
+        const explanation = document.createElement("div");
+        explanation.className = "explanation";
+        explanation.id = "explanation-" + q.n;
+
+        card.appendChild(explanation);
         quiz.appendChild(card);
     });
 
@@ -620,7 +667,7 @@ function renderQuestions() {
 }
 
 function selectAnswer(questionNumber, selectedIndex) {
-    if (answers[questionNumber] !== undefined) {
+    if (answers[questionNumber] !== undefined || submitted) {
         return;
     }
 
@@ -646,16 +693,25 @@ function selectAnswer(questionNumber, selectedIndex) {
         "explanation-" + questionNumber
     );
 
-    explanation.innerHTML = `
-        <strong>
-            ${selectedIndex === q.a ? "Correct answer!" : "Wrong answer!"}
-        </strong>
-        <br>
-        <strong>Correct option:</strong>
-        ${String.fromCharCode(65 + q.a)}. ${q.o[q.a]}
-        <br>
-        <strong>Explanation:</strong> ${q.e}
-    `;
+    explanation.textContent = "";
+
+    const status = document.createElement("strong");
+    status.textContent =
+        selectedIndex === q.a ? "Correct answer!" : "Wrong answer!";
+    explanation.appendChild(status);
+
+    explanation.appendChild(document.createElement("br"));
+
+    const correct = document.createElement("strong");
+    correct.textContent =
+        `Correct option: ${String.fromCharCode(65 + q.a)}. ${q.o[q.a]}`;
+    explanation.appendChild(correct);
+
+    explanation.appendChild(document.createElement("br"));
+
+    const description = document.createElement("span");
+    description.textContent = "Explanation: " + q.e;
+    explanation.appendChild(description);
 
     explanation.classList.add("show");
 
@@ -663,11 +719,24 @@ function selectAnswer(questionNumber, selectedIndex) {
 }
 
 function updateProgress() {
+    const answered = Object.keys(answers).length;
+    const total = questions.length;
+
     document.getElementById("progress").textContent =
-        `Answered: ${Object.keys(answers).length} / ${questions.length}`;
+        `Answered: ${answered} / ${total}`;
+
+    document.getElementById("progressBar").style.width =
+        (answered / total * 100) + "%";
 }
 
 function showResult() {
+    if (submitted) {
+        document.getElementById("result").scrollIntoView({
+            behavior: "smooth"
+        });
+        return;
+    }
+
     let correct = 0;
     let wrong = 0;
     let unanswered = 0;
@@ -682,18 +751,65 @@ function showResult() {
         }
     });
 
-    // Scoring: +1 for correct, -0.20 for wrong, 0 for unanswered.
-    const marks = correct - (wrong * 0.20);
+    const negativeMarks = wrong * 0.20;
+    const marks = correct - negativeMarks;
+
+    submitted = true;
+
+    document.querySelectorAll(".option").forEach(button => {
+        button.disabled = true;
+    });
+
+    // Reveal the correct option and explanation for unanswered questions.
+    questions.forEach(q => {
+        const card = document.getElementById("question-" + q.n);
+        const buttons = card.querySelectorAll(".option");
+
+        buttons.forEach((button, index) => {
+            if (index === q.a) {
+                button.classList.add("correct");
+            }
+        });
+
+        const explanation = document.getElementById(
+            "explanation-" + q.n
+        );
+
+        if (answers[q.n] === undefined) {
+            explanation.textContent = "";
+
+            const status = document.createElement("strong");
+            status.textContent = "Not answered.";
+            explanation.appendChild(status);
+
+            explanation.appendChild(document.createElement("br"));
+
+            const correctAnswer = document.createElement("strong");
+            correctAnswer.textContent =
+                `Correct option: ${String.fromCharCode(65 + q.a)}. ${q.o[q.a]}`;
+            explanation.appendChild(correctAnswer);
+
+            explanation.appendChild(document.createElement("br"));
+
+            const description = document.createElement("span");
+            description.textContent = "Explanation: " + q.e;
+            explanation.appendChild(description);
+        }
+
+        explanation.classList.add("show");
+    });
 
     document.getElementById("result").style.display = "block";
+
     document.getElementById("score").textContent =
         `${marks.toFixed(2)} / ${questions.length}`;
 
     document.getElementById("details").innerHTML = `
+        Total questions: ${questions.length}<br>
         Correct answers: ${correct}<br>
         Wrong answers: ${wrong}<br>
         Unanswered: ${unanswered}<br>
-        Negative marks: ${(wrong * 0.20).toFixed(2)}<br>
+        Negative marks: ${negativeMarks.toFixed(2)}<br>
         <strong>Final marks: ${marks.toFixed(2)}</strong>
     `;
 
@@ -703,8 +819,9 @@ function showResult() {
 }
 
 function reviewAnswers() {
-    document.querySelectorAll(".explanation").forEach(element => {
-        element.classList.add("show");
+    questions.forEach(q => {
+        document.getElementById("explanation-" + q.n)
+            .classList.add("show");
     });
 
     document.getElementById("quiz").scrollIntoView({
@@ -716,6 +833,8 @@ function resetTest() {
     for (const key in answers) {
         delete answers[key];
     }
+
+    submitted = false;
 
     document.getElementById("result").style.display = "none";
 
